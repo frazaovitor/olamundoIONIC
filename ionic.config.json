@@ -1,5 +1,7 @@
 {
   "name": "olamundo",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }
