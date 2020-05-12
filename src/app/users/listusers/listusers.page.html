@@ -1,0 +1,46 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+
+        <ion-title>Lista de usuários</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <div class="ion-text-center ion-margin ion-padding" *ngIf="!data">
+        <ion-spinner name="lines" color="secondary"></ion-spinner>
+
+    </div>
+
+
+
+    <!-- se existem dados para mostrar  -->
+    <ion-list *ngIf="data">
+        <div *ngFor="let user of itemsPage">
+            <ion-item routerDirection="root" [routerLink]="['/usuarios/usuario/',user.id]">
+                <ion-avatar slot="start"><img src="{{user.avatar}}" alt="{{user.title}}">
+                </ion-avatar>
+                <ion-label>
+                    <h3></h3>
+                </ion-label>
+                {{user.name}} {{user.email}}
+            </ion-item>
+        </div>
+    </ion-list>
+
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Carregando mais dados...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+    <ion-content>
+
+        <ion-list *ngIf="noUsers">
+            <ion-item color="danger">
+                <ion-label class="ion-text-center">Nenhum usuário foi cadastrado!</ion-label>
+            </ion-item>
+
+        </ion-list>
+    </ion-content>

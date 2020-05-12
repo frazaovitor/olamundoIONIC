@@ -1,0 +1,61 @@
+<!-- <p class="ion-margin" ngIf="!userForm.control.id.value">
+    Preencha os campos abaixo com atenção para criar um novo usuário.
+</p>
+
+<p class="ion-margin" ngIf="userForm.control.id.value">
+    Preencha os campos abaixo com atenção para editar o usuário.
+</p> -->
+
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <input type="hidden" id="id" name="id" formControlName="id">
+
+    <ion-list lines="full" class="ion-margin">
+        <!--  campo 'name' -->
+        <ion-item>
+            <ion-label for="name" position="floating" color="primary">Nome:
+
+                <!-- Se está em estado de erro -->
+                <ion-text color="danger" *ngIf="userForm.controls.name.errors">
+                    <small *ngIf="userForm.controls.name.errors.required">* obrigatório</small>
+                    <small *ngIf="userForm.controls.name.errors.minlength">* min 3 caracters</small>
+                </ion-text>
+
+
+
+            </ion-label>
+            <ion-input type="text" id="name" name="name" formControlName="name"></ion-input>
+        </ion-item>
+
+        <!--  campo 'email' -->
+        <ion-item>
+            <ion-label for="email" position="floating" color="primary">Email:
+
+                <!-- Se está em estado de erro -->
+                <ion-text color="danger" *ngIf="userForm.controls.email.errors">
+
+                    <small *ngIf="userForm.controls.email.errors.required">* Obrigatório</small>
+                    <small *ngIf="userForm.controls.email.errors.pattern">*inválido</small>
+                </ion-text>
+
+            </ion-label>
+
+            <ion-input type="text" id="email" name="email" formControlName="email"></ion-input>
+        </ion-item>
+
+        <!--  campo 'avatar' -->
+        <ion-item>
+            <ion-label for="avatar" position="floating" color="primary">Url do avatar</ion-label>
+            <ion-input type="text" id="avatar" name="avatar" formControlName="avatar"></ion-input>
+        </ion-item>
+
+        <!--  campo 'status' -->
+        <ion-item>
+            <ion-label for="status" color="primary">Status:</ion-label>
+            <ion-input type="text" id="status" name="status" formControlName="status"></ion-input>
+        </ion-item>
+
+    </ion-list>
+
+    <ion-button type="submit" expand="block" class="ion-margin" [disabled]="!userForm.valid">Criar usuário</ion-button>
+
+</form>

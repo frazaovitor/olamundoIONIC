@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Contato',
-      url: '/contacts',
+      url: '/contatos',
       icon: 'at'
     }
 
