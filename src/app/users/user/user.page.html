@@ -3,17 +3,17 @@
         <ion-buttons slot="start">
             <ion-menu-button></ion-menu-button>
         </ion-buttons>
-        <ion-title>user</ion-title>
+        <ion-title>Dados do Usuário</ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
-    <!--  se o usuário nao existe -->
+    <!-- Se usuário não existe -->
     <ion-list *ngIf="noUser">
         <ion-item color="danger">
-            <ion-label class="ion-text-center">Usuário não encontrado!"</ion-label>
+            <ion-label class="ion-text-center">Usuário não foi encontrado!</ion-label>
         </ion-item>
+        <ion-button expand="block" class="ion-margin" (click)="listUsers()">Listar usuários</ion-button>
     </ion-list>
 
     <!-- carregando dados ainda -->
@@ -55,5 +55,6 @@
                 </ion-grid>
             </ion-card-content>
         </ion-card>
+        <ion-button expand="block" class="ion-margin" (click)="listUsers()">Listar usuários</ion-button>
     </div>
 </ion-content>

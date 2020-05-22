@@ -9,27 +9,34 @@ export interface User {
 
 
 // o que esperar do response da listagem de usuários
-export interface ResponseUsers{
-    status: string;
+export interface ResponseUsers {
+    status: number;
     result: User[];
 }
 
 // o que esperar do response da listagem de apenas 1 usuário
-export interface ResponseUser{
-  status: string;
+export interface ResponseUser {
+  status: number;
   result: User[];
 }
 
 // o que esperar do response de delete
 
-export interface ResponseDelUser{
-status: string;
+export interface ResponseDelUser {
+status: number;
 result: string;
 }
 
 // o que esperar do response de post
 
-export interface ResponsePostUser{
-status: string;
+export interface ResponsePostUser {
+status: number;
 result: string;
 }
+
+// o que esperar do response de put "update"
+
+export interface ResponsePutUser {
+  status: number;
+  result: string;
+  }

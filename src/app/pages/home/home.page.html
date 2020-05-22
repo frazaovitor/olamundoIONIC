@@ -7,13 +7,23 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
 
-    <div class="content">
-        <p>Você está na página inicial da aplicação.</p>
 
-        <ion-button expand="block" class="ion-margin-bottom" (click)="listUsers()">LISTAR USUÁRIOS</ion-button>
-        <ion-button expand="block" class="ion-margin-bottom" (click)="createUsers()">CRIAR USUÁRIOS</ion-button>
-    </div>
+    <p>Você está na página inicial da aplicação.</p>
+
+    <ion-button expand="block" class="ion-margin-bottom" (click)="listUsers()">LISTAR USUÁRIOS</ion-button>
+    <ion-button expand="block" class="ion-margin-bottom" (click)="createUsers()">CRIAR USUÁRIOS</ion-button>
+    <ion-item-divider></ion-item-divider>
+
+
+    <p>Acesso aos recursos do dispositivo.</p>
+
+    <ion-button expand="block" class="ion-margin-bottom" (click)="devStatus()">Status do dispositivo</ion-button>
+
+    <ion-button expand="block" class="ion-margin-bottom" (click)="devCamera()">Camera do dispositivo</ion-button>
+
+    <ion-button expand="block" class="ion-margin-bottom" (click)="geolocation()">GPS do dispositivo</ion-button>
+
 
 </ion-content>

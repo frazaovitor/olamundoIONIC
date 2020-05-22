@@ -7,10 +7,10 @@ import { IonicModule } from '@ionic/angular';
 import { CreatePageRoutingModule } from './create-routing.module';
 
 import { CreatePage } from './create.page';
-//importa o formulário do usuário
+// importa o formulário do usuário
 import { UserFormComponent } from '../../components/user-form/user-form.component';
 
-//importa reactiveformns
+// importa reactiveformns
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -19,11 +19,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     IonicModule,
     CreatePageRoutingModule,
-    //inicializa o reactiveforms
+    // inicializa o reactiveforms
     ReactiveFormsModule
   ],
   declarations: [CreatePage,
-    //declara componente do usuário
-    UserFormComponent]
+    // declara componente do usuário
+    UserFormComponent],
+    exports: [
+      // Exporta componente do formulário do usuário para uso em outras páginas
+      UserFormComponent
+    ]
 })
 export class CreatePageModule {}

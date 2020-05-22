@@ -1,0 +1,32 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Status do Dispositivo</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <div class="ion-margin">
+
+        <h3>Status da Bateria</h3>
+        <small>Carga da Bateria: {{bateria * 100}}% </small>
+
+        <ion-progress-bar [value]="bateria"></ion-progress-bar>
+
+        <small *ngIf="cargaBat && bateria != 1">Carregando...</small><small *ngIf="cargaBat && bateria == 1">Bateria cheia, desconecte o carregador.</small><small *ngIf="!cargaBat && bateria < 0.16">Bateria fraca, conecte o carregador!</small>
+
+        <h3>Sobre:</h3>
+        <ul>
+            <li>Sistema Operacional: {{SO}}</li>
+            <li>Versão do Sistema: {{versao}}</li>
+            <li>Modelo: {{modelo}}</li>
+            <li>Espaço Livre: {{espacoLivre}}</li>
+            <li>Espaço Total: {{espacoTotal}}</li>
+            <li>Idioma: {{idioma}}</li>
+        </ul>
+
+    </div>
+</ion-content>

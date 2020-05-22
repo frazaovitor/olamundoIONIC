@@ -20,7 +20,7 @@ import { NavController } from '@ionic/angular';
 export class UserPage implements OnInit {
 
   // Obtém o Id do usuário da URL da rota
-  id: string = this.route.snapshot.paramMap.get('id');
+  id = parseInt(this.route.snapshot.paramMap.get('id'), 10);
 
   // Variável que indentifica se temos usuários
   noUser = false;
@@ -47,7 +47,7 @@ export class UserPage implements OnInit {
     // console.log('ID: ', this.id);
 
     // Consultar a API para o Id informado usando o service getUser
-    this.usersService.getUser(this.id).subscribe(
+    this.usersService.getUser(this.id.toString()).subscribe(
 
       (res: any) => {
 
@@ -84,7 +84,7 @@ export class UserPage implements OnInit {
 
   // Ação do botão Editar
   editUser(id: string) {
-    alert(`Editando ${id}...`);
+    this.navCtrl.navigateForward(`usuarios/editar/${id}`)
   }
 
   // Ação do botão Apagar
@@ -102,7 +102,7 @@ Clique em [Ok] para apagar e [Cancelar] para não apagar...`
     }
 
     // Apaga o retgistro com o Id informado
-    this.usersService.deleteUser(this.id).subscribe(
+    this.usersService.deleteUser(this.id.toString()).subscribe(
       (res: any) => {
 
         // Se apagou
